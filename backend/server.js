@@ -1,4 +1,6 @@
 // juan jesus vazquez martin del campo
+//jose arturo picazo zaragoza
+//luis fernanfloo barragan medina
 
 const express = require('express');
 const cors = require('cors');
