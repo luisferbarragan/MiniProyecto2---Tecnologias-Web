@@ -83,3 +83,33 @@
 .producto-card__stock {
   color: #444444;
 }
+
+.producto-card__acciones {
+  align-items: center;
+  border-top: 1px solid #edf2f7;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.producto-card__acciones button {
+  background: #ef4444;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 10px 16px;
+}
+
+.producto-card__acciones button:disabled {
+  background: #9aa5b1;
+  cursor: not-allowed;
+}
+
+.producto-card__cantidad {
+  color: #102a43;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
