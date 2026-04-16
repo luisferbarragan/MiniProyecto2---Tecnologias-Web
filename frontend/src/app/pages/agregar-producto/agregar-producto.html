@@ -1,0 +1,64 @@
+<div class="container">
+  <h2>Agregar Producto</h2>
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre" class="form-control">
+      <div *ngIf="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched" class="error">
+        Nombre es requerido y debe tener al menos 3 caracteres.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="categoria">Categoría:</label>
+      <input type="text" id="categoria" formControlName="categoria" class="form-control">
+      <div *ngIf="productoForm.get('categoria')?.invalid && productoForm.get('categoria')?.touched" class="error">
+        Categoría es requerida.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="marca">Marca:</label>
+      <input type="text" id="marca" formControlName="marca" class="form-control">
+      <div *ngIf="productoForm.get('marca')?.invalid && productoForm.get('marca')?.touched" class="error">
+        Marca es requerida.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="precio">Precio:</label>
+      <input type="number" id="precio" formControlName="precio" class="form-control">
+      <div *ngIf="productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched" class="error">
+        Precio es requerido y debe ser mayor o igual a 0.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Stock:</label>
+      <input type="number" id="stock" formControlName="stock" class="form-control">
+      <div *ngIf="productoForm.get('stock')?.invalid && productoForm.get('stock')?.touched" class="error">
+        Stock es requerido y debe ser mayor o igual a 0.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="imagen">Imagen (URL):</label>
+      <input type="text" id="imagen" formControlName="imagen" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+      <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error">
+        Descripción es requerida.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="disponible">Disponible:</label>
+      <input type="checkbox" id="disponible" formControlName="disponible">
+    </div>
+
+    <button type="submit" [disabled]="!productoForm.valid" class="btn">Agregar Producto</button>
+  </form>
+</div>
