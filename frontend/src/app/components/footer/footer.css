@@ -1,0 +1,30 @@
+.footer {
+  align-items: center;
+  background: #102a43;
+  color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 22px 7%;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer p:first-child {
+  font-weight: 700;
+}
+
+.footer p:last-child {
+  color: #d9e2ec;
+}
+
+@media (max-width: 640px) {
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px 5%;
+  }
+}
