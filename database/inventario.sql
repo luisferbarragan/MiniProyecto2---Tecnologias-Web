@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS tienda_pokemon_go;
+USE tienda_pokemon_go;
+
+CREATE TABLE IF NOT EXISTS productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(150) NOT NULL,
+  categoria VARCHAR(100) NOT NULL,
+  marca VARCHAR(100) NOT NULL,
+  precio DECIMAL(10, 2) NOT NULL,
+  stock INT NOT NULL,
+  imagen VARCHAR(255) NOT NULL,
+  descripcion TEXT NOT NULL,
+  disponible BOOLEAN NOT NULL DEFAULT TRUE
+);
