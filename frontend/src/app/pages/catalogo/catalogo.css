@@ -1,0 +1,51 @@
+.catalogo-intro {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding: 1rem;
+}
+
+.catalogo-intro .subtitle {
+  color: #0070f3;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.catalogo-intro h1 {
+  margin: 0;
+  font-size: clamp(2rem, 2.6vw, 3rem);
+  line-height: 1.05;
+}
+
+.catalogo-intro .descripcion {
+  margin: 1rem 0 0;
+  color: #4d4d4d;
+  max-width: 720px;
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem 2rem;
+}
+
+.catalogo-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  border: 1px dashed #c6c6c6;
+  border-radius: 16px;
+  background: #fafafa;
+  margin: 0 1rem 2rem;
+}
+
+.catalogo-empty h2 {
+  margin-bottom: 0.75rem;
+  color: #222222;
+}
+
+.catalogo-empty p {
+  margin: 0;
+  color: #555555;
+}

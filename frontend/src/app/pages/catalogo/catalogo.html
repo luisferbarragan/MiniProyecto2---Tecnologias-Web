@@ -1,0 +1,26 @@
+<section class="catalogo-intro">
+  <div>
+    <p class="subtitle">Catálogo de productos</p>
+    <h1>Explora cartas y accesorios disponibles</h1>
+    <p class="descripcion">
+      Usa el catálogo para ver la disponibilidad, el precio y los detalles cortos de cada producto.
+    </p>
+  </div>
+</section>
+
+<section *ngIf="productos.length > 0; else sinProductos" class="catalogo-grid">
+  <app-producto-card
+    *ngFor="let producto of productos"
+    [producto]="producto"
+  ></app-producto-card>
+</section>
+
+<ng-template #sinProductos>
+  <section class="catalogo-empty">
+    <h2>No hay productos para mostrar</h2>
+    <p>
+      Aún no hay productos disponibles en el catálogo. Por favor vuelve más tarde o
+      agrega nuevos productos.
+    </p>
+  </section>
+</ng-template>
