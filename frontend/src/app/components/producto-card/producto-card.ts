@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Producto } from '../../models/producto.model';
 
 @Component({
   selector: 'app-producto-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './producto-card.html',
   styleUrl: './producto-card.css'
 })

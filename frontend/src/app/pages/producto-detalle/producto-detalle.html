@@ -1,0 +1,32 @@
+<section class="detalle-wrapper" *ngIf="producto; else estado">
+  <div class="detalle-imagen">
+    <img [src]="producto.imagen" [alt]="producto.nombre" />
+  </div>
+
+  <div class="detalle-contenido">
+    <p class="detalle-tag">Detalle de producto</p>
+    <h1>{{ producto.nombre }}</h1>
+    <p class="detalle-meta">{{ producto.categoria }} · {{ producto.marca }}</p>
+    <strong class="detalle-precio">{{ producto.precio | currency:'MXN':'symbol':'1.2-2' }}</strong>
+
+    <p class="detalle-descripcion">{{ producto.descripcion }}</p>
+    <p class="detalle-stock" [ngClass]="{ disponible: producto.stock > 0, agotado: producto.stock === 0 }">
+      {{ producto.stock > 0 ? 'En stock: ' + producto.stock : 'Agotado' }}
+    </p>
+
+    <a routerLink="/catalogo" class="detalle-volver">Volver al catálogo</a>
+  </div>
+</section>
+
+<ng-template #estado>
+  <section class="detalle-estado">
+    <ng-container *ngIf="cargando">
+      <p>Cargando producto...</p>
+    </ng-container>
+    <ng-container *ngIf="!cargando && error">
+      <h2>Producto no encontrado</h2>
+      <p>El producto solicitado no existe o la API no respondió.</p>
+      <a routerLink="/catalogo" class="detalle-volver">Regresar al catálogo</a>
+    </ng-container>
+  </section>
+</ng-template>
