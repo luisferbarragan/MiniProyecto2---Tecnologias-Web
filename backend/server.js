@@ -1,23 +1,20 @@
-// juan jesus vazquez martin del campo
-//jose arturo picazo zaragoza
-//luis fernanfloo barragan medina
-
 const express = require('express');
 const cors = require('cors');
 
 const app = express();
+const productosRoutes = require('./routes/productos.routes');
 
 app.use(cors());
 app.use(express.json());
 
-// endpoint de prueba
 app.get('/', (req, res) => {
-  res.send('api funcionando');
+  res.send('Servidor de tienda funcionando');
 });
 
-const productosRoutes = require('./routes/productos.routes');
-app.use('/api/productos', productosRoutes);
+app.use('/productos', productosRoutes);
 
-app.listen(3000, () => {
-  console.log('servidor corriendo en puerto 3000');
+const PORT = 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
