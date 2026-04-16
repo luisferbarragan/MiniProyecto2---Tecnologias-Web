@@ -1,5 +1,5 @@
-<a class="producto-card__link" *ngIf="producto" [routerLink]="['/productos', producto.id]">
-  <article class="producto-card">
+<article class="producto-card" *ngIf="producto">
+  <a class="producto-card__link" [routerLink]="['/productos', producto.id]">
     <div class="producto-card__imagen">
       <img [src]="producto.imagen" [alt]="producto.nombre" />
       <span
@@ -25,5 +25,14 @@
         </span>
       </div>
     </div>
-  </article>
-</a>
+  </a>
+
+  <div class="producto-card__acciones">
+    <button type="button" [disabled]="!disponible" (click)="agregarAlCarrito($event)">
+      {{ disponible ? 'Agregar al carrito' : 'Sin stock' }}
+    </button>
+    <span *ngIf="obtenerCantidadEnCarrito() > 0" class="producto-card__cantidad">
+      En carrito: {{ obtenerCantidadEnCarrito() }}
+    </span>
+  </div>
+</article>
