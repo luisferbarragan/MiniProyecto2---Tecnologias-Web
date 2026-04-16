@@ -15,6 +15,9 @@ app.get('/', (req, res) => {
   res.send('api funcionando');
 });
 
+const productosRoutes = require('./routes/productos.routes');
+app.use('/api/productos', productosRoutes);
+
 app.listen(3000, () => {
   console.log('servidor corriendo en puerto 3000');
 });
