@@ -36,3 +36,13 @@ label {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.success {
+  color: #1f7a1f;
+  margin-top: 16px;
+}
+
+.error-message {
+  color: #b42318;
+  margin-top: 16px;
+}

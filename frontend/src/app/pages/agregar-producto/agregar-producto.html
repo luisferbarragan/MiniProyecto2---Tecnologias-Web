@@ -10,10 +10,10 @@
     </div>
 
     <div class="form-group">
-      <label for="categoria">Categoría:</label>
+      <label for="categoria">Categoria:</label>
       <input type="text" id="categoria" formControlName="categoria" class="form-control">
       <div *ngIf="productoForm.get('categoria')?.invalid && productoForm.get('categoria')?.touched" class="error">
-        Categoría es requerida.
+        Categoria es requerida.
       </div>
     </div>
 
@@ -44,21 +44,29 @@
     <div class="form-group">
       <label for="imagen">Imagen (URL):</label>
       <input type="text" id="imagen" formControlName="imagen" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
-      <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error">
-        Descripción es requerida.
+      <div *ngIf="productoForm.get('imagen')?.invalid && productoForm.get('imagen')?.touched" class="error">
+        La imagen es requerida.
       </div>
     </div>
 
     <div class="form-group">
+      <label for="descripcion">Descripcion:</label>
+      <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+      <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched" class="error">
+        Descripcion es requerida.
+      </div>
+    </div>
+
+    <div class="form-group checkbox-group">
       <label for="disponible">Disponible:</label>
       <input type="checkbox" id="disponible" formControlName="disponible">
     </div>
 
-    <button type="submit" [disabled]="!productoForm.valid" class="btn">Agregar Producto</button>
+    <button type="submit" [disabled]="!productoForm.valid || enviando" class="btn">
+      {{ enviando ? 'Guardando...' : 'Agregar Producto' }}
+    </button>
   </form>
+
+  <p *ngIf="mensajeExito" class="success">{{ mensajeExito }}</p>
+  <p *ngIf="mensajeError" class="error-message">{{ mensajeError }}</p>
 </div>

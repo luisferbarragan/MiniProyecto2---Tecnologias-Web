@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ProductosService } from '../../services/productos.service';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -11,26 +12,55 @@ import { CommonModule } from '@angular/common';
 })
 export class AgregarProducto {
   productoForm: FormGroup;
+  enviando = false;
+  mensajeExito = '';
+  mensajeError = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private productosService: ProductosService
+  ) {
     this.productoForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       categoria: ['', Validators.required],
       marca: ['', Validators.required],
       precio: ['', [Validators.required, Validators.min(0)]],
       stock: ['', [Validators.required, Validators.min(0)]],
-      imagen: [''],
+      imagen: ['', Validators.required],
       descripcion: ['', Validators.required],
       disponible: [true]
     });
   }
 
-  onSubmit() {
-    if (this.productoForm.valid) {
-      console.log('Producto agregado:', this.productoForm.value);
-      // Aquí iría la lógica para enviar al backend
-    } else {
-      console.log('Formulario inválido');
+  onSubmit(): void {
+    if (this.productoForm.invalid) {
+      this.productoForm.markAllAsTouched();
+      return;
     }
+
+    this.enviando = true;
+    this.mensajeExito = '';
+    this.mensajeError = '';
+
+    this.productosService.crearProducto(this.productoForm.getRawValue()).subscribe({
+      next: () => {
+        this.mensajeExito = 'Producto guardado correctamente.';
+        this.productoForm.reset({
+          nombre: '',
+          categoria: '',
+          marca: '',
+          precio: '',
+          stock: '',
+          imagen: '',
+          descripcion: '',
+          disponible: true
+        });
+        this.enviando = false;
+      },
+      error: () => {
+        this.mensajeError = 'No se pudo guardar el producto.';
+        this.enviando = false;
+      }
+    });
   }
 }

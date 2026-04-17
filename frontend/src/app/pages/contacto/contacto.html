@@ -13,7 +13,7 @@
       <label for="correo">Correo:</label>
       <input type="email" id="correo" name="correo" [(ngModel)]="contacto.correo" required email #correo="ngModel" class="form-control">
       <div *ngIf="correo.invalid && correo.touched" class="error">
-        Correo es requerido y debe ser válido.
+        Correo es requerido y debe ser valido.
       </div>
     </div>
 
@@ -33,6 +33,11 @@
       </div>
     </div>
 
-    <button type="submit" [disabled]="!contactForm.valid" class="btn">Enviar Mensaje</button>
+    <button type="submit" [disabled]="!contactForm.valid || enviando" class="btn">
+      {{ enviando ? 'Enviando...' : 'Enviar Mensaje' }}
+    </button>
   </form>
+
+  <p *ngIf="mensajeExito" class="success">{{ mensajeExito }}</p>
+  <p *ngIf="mensajeError" class="error-message">{{ mensajeError }}</p>
 </div>
