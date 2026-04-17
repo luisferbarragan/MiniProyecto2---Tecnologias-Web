@@ -8,6 +8,12 @@
   margin-bottom: 15px;
 }
 
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 label {
   display: block;
   margin-bottom: 5px;
@@ -35,4 +41,14 @@ label {
 .btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.success {
+  color: #1f7a1f;
+  margin-top: 16px;
+}
+
+.error-message {
+  color: #b42318;
+  margin-top: 16px;
 }

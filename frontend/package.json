@@ -2,10 +2,14 @@
   "name": "frontend",
   "version": "0.0.0",
   "scripts": {
+    "prestart": "node scripts/write-env.mjs",
     "ng": "ng",
     "start": "ng serve",
+    "prebuild": "node scripts/write-env.mjs",
     "build": "ng build",
+    "prewatch": "node scripts/write-env.mjs",
     "watch": "ng build --watch --configuration development",
+    "pretest": "node scripts/write-env.mjs",
     "test": "ng test"
   },
   "private": true,
