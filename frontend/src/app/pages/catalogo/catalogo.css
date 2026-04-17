@@ -1,34 +1,40 @@
 .catalogo-intro {
-  max-width: 900px;
-  margin: 0 auto 2rem;
-  padding: 1rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 20px 22px;
 }
 
 .catalogo-intro .subtitle {
   color: #0070f3;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 .catalogo-intro h1 {
+  color: #102a43;
   margin: 0;
-  font-size: clamp(2rem, 2.6vw, 3rem);
-  line-height: 1.05;
+  font-size: clamp(2.2rem, 3.6vw, 4rem);
+  line-height: 0.98;
+  max-width: 12ch;
 }
 
 .catalogo-intro .descripcion {
   margin: 1rem 0 0;
-  color: #4d4d4d;
-  max-width: 720px;
+  color: #52606d;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 62ch;
 }
 
 .catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  padding: 0 1rem 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px 32px;
 }
 
 .catalogo-empty {
@@ -37,7 +43,8 @@
   border: 1px dashed #c6c6c6;
   border-radius: 16px;
   background: #fafafa;
-  margin: 0 1rem 2rem;
+  margin: 0 auto 2rem;
+  max-width: 1120px;
 }
 
 .catalogo-empty h2 {
