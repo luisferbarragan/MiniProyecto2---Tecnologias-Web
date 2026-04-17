@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductosService } from '../../services/productos.service';
@@ -18,7 +18,8 @@ export class ProductoDetalle implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productosService: ProductosService
+    private productosService: ProductosService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -33,10 +34,12 @@ export class ProductoDetalle implements OnInit {
       next: (producto) => {
         this.producto = producto;
         this.cargando = false;
+        this.changeDetectorRef.detectChanges();
       },
       error: () => {
         this.error = true;
         this.cargando = false;
+        this.changeDetectorRef.detectChanges();
       }
     });
   }

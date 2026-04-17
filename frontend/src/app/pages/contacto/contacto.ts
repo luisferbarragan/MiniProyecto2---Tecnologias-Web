@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ContactoService } from '../../services/contacto.service';
 
@@ -44,8 +45,8 @@ export class Contacto {
         form.resetForm();
         this.enviando = false;
       },
-      error: () => {
-        this.mensajeError = 'No se pudo enviar el mensaje.';
+      error: (error: HttpErrorResponse) => {
+        this.mensajeError = error.error?.mensaje || 'No se pudo enviar el mensaje.';
         this.enviando = false;
       }
     });
