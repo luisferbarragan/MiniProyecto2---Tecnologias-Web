@@ -1,9 +1,9 @@
 <section class="catalogo-intro">
   <div>
-    <p class="subtitle">Catálogo de productos</p>
+    <p class="subtitle">Catalogo de productos</p>
     <h1>Explora cartas y accesorios disponibles</h1>
     <p class="descripcion">
-      Usa el catálogo para ver la disponibilidad, el precio y los detalles cortos de cada producto.
+      Usa el catalogo para ver la disponibilidad, el precio y los detalles cortos de cada producto.
     </p>
   </div>
 </section>
@@ -13,19 +13,17 @@
   <p>Espera mientras se obtienen los datos desde la API.</p>
 </section>
 
-<section *ngIf="!cargando && productos.length > 0; else sinProductos" class="catalogo-grid">
+<section *ngIf="!cargando && productos.length > 0" class="catalogo-grid">
   <app-producto-card
     *ngFor="let producto of productos"
     [producto]="producto"
   ></app-producto-card>
 </section>
 
-<ng-template #sinProductos>
-  <section class="catalogo-empty">
-    <h2>No hay productos para mostrar</h2>
-    <p>
-      Aún no hay productos disponibles en el catálogo. Por favor vuelve más tarde o
-      agrega nuevos productos.
-    </p>
-  </section>
-</ng-template>
+<section *ngIf="!cargando && productos.length === 0" class="catalogo-empty">
+  <h2>No hay productos para mostrar</h2>
+  <p>
+    Aun no hay productos disponibles en el catalogo. Por favor vuelve mas tarde o
+    agrega nuevos productos.
+  </p>
+</section>
